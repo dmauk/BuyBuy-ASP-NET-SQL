@@ -7,13 +7,13 @@ namespace BuyBuy.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class AddIsSubscribedToCustomer : IMigrationMetadata
+    public sealed partial class AddMembershipTypes : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddIsSubscribedToCustomer));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(AddMembershipTypes));
         
         string IMigrationMetadata.Id
         {
-            get { return "201808111816192_AddIsSubscribedToCustomer"; }
+            get { return "201808112147351_AddMembershipTypes"; }
         }
         
         string IMigrationMetadata.Source

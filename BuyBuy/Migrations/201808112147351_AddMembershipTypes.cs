@@ -3,7 +3,7 @@ namespace BuyBuy.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class PopulateMembershipTypes : DbMigration
+    public partial class AddMembershipTypes : DbMigration
     {
         public override void Up()
         {

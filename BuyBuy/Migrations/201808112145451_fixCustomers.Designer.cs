@@ -7,13 +7,13 @@ namespace BuyBuy.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class ApplyAnnotationsToCustomerName : IMigrationMetadata
+    public sealed partial class fixCustomers : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(ApplyAnnotationsToCustomerName));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(fixCustomers));
         
         string IMigrationMetadata.Id
         {
-            get { return "201808111832292_ApplyAnnotationsToCustomerName"; }
+            get { return "201808112145451_fixCustomers"; }
         }
         
         string IMigrationMetadata.Source

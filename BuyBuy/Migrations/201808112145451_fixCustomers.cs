@@ -3,7 +3,7 @@ namespace BuyBuy.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialModel : DbMigration
+    public partial class fixCustomers : DbMigration
     {
         public override void Up()
         {
@@ -12,6 +12,47 @@ namespace BuyBuy.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
+                        Name = c.String(nullable: false, maxLength: 255),
+                        IsSubscribedToNewsletter = c.Boolean(nullable: false),
+                        Birthdate = c.DateTime(),
+                        MembershipTypeId = c.Byte(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.MembershipTypes", t => t.MembershipTypeId, cascadeDelete: true)
+                .Index(t => t.MembershipTypeId);
+            
+            CreateTable(
+                "dbo.MembershipTypes",
+                c => new
+                    {
+                        Id = c.Byte(nullable: false),
+                        SignUpFee = c.Short(nullable: false),
+                        DurationInMonths = c.Byte(nullable: false),
+                        DiscountRate = c.Byte(nullable: false),
+                        Name = c.String(),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
+                "dbo.Movies",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Name = c.String(),
+                        ReleaseDate = c.DateTime(nullable: false),
+                        DateAdded = c.DateTime(nullable: false),
+                        NumberInStock = c.Int(nullable: false),
+                        Genre_Id = c.Byte(),
+                    })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.Genres", t => t.Genre_Id)
+                .Index(t => t.Genre_Id);
+            
+            CreateTable(
+                "dbo.Genres",
+                c => new
+                    {
+                        Id = c.Byte(nullable: false),
                         Name = c.String(),
                     })
                 .PrimaryKey(t => t.Id);
@@ -92,17 +133,24 @@ namespace BuyBuy.Migrations
             DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
+            DropForeignKey("dbo.Movies", "Genre_Id", "dbo.Genres");
+            DropForeignKey("dbo.Customers", "MembershipTypeId", "dbo.MembershipTypes");
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
             DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
             DropIndex("dbo.AspNetUsers", "UserNameIndex");
             DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
+            DropIndex("dbo.Movies", new[] { "Genre_Id" });
+            DropIndex("dbo.Customers", new[] { "MembershipTypeId" });
             DropTable("dbo.AspNetUserLogins");
             DropTable("dbo.AspNetUserClaims");
             DropTable("dbo.AspNetUsers");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetRoles");
+            DropTable("dbo.Genres");
+            DropTable("dbo.Movies");
+            DropTable("dbo.MembershipTypes");
             DropTable("dbo.Customers");
         }
     }
