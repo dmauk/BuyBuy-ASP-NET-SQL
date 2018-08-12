@@ -21,6 +21,8 @@ namespace BuyBuy.Models
         public DateTime DateAdded { get; set; }
 
         [Display(Name = "Number in Stock")]
+        [Range(1,999)]
+        [Required]
         public int NumberInStock { get; set; }
 
         public Genre Genre { get; set; }

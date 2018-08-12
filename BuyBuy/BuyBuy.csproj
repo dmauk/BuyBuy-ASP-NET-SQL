@@ -289,6 +289,10 @@
     <Compile Include="Migrations\201808120252473_whoopsForgottoAddDateAddedForMovies.Designer.cs">
       <DependentUpon>201808120252473_whoopsForgottoAddDateAddedForMovies.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808120704270_AddRangeOnStockNumber.cs" />
+    <Compile Include="Migrations\201808120704270_AddRangeOnStockNumber.Designer.cs">
+      <DependentUpon>201808120704270_AddRangeOnStockNumber.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Genre.cs" />
@@ -442,6 +446,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808120252473_whoopsForgottoAddDateAddedForMovies.resx">
       <DependentUpon>201808120252473_whoopsForgottoAddDateAddedForMovies.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808120704270_AddRangeOnStockNumber.resx">
+      <DependentUpon>201808120704270_AddRangeOnStockNumber.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
