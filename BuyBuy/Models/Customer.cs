@@ -10,7 +10,7 @@ namespace BuyBuy.Models
     {
         public int Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Enter Name!")]
         [StringLength(255)]
         public String Name { get; set; }
 
@@ -19,6 +19,7 @@ namespace BuyBuy.Models
         public MembershipType MembershipType { get; set; }
 
         [Display(Name = "Date of Birth")] //if using html label for, this will appear instead of 'Birthdate' but ya gotta recompile if it changes
+        [Min18YearsIfAMember]
         public DateTime? Birthdate { get; set; }
 
         [Display(Name = "Membership Type")]
