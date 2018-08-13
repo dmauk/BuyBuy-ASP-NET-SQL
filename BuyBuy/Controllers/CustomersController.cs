@@ -49,6 +49,7 @@ namespace BuyBuy.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(Customer customer)
         {
             if (!ModelState.IsValid) //check if passed request date is valid based on customer definition with data annotations
